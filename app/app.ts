@@ -1,7 +1,10 @@
 function startGame() {
     // starting a new game
     let messageElement = document.getElementById('messages');
-    messageElement.innerText = 'Welcome to MultiMath! Staring a new game...';
+
+    if (messageElement) messageElement.innerText = 'Welcome to MultiMath! Staring a new game...';
 }
 
-document.getElementById('startGame').addEventListener('click', startGame);
+let startGameElement = document.getElementById('startGame');
+
+if (startGameElement) startGameElement.addEventListener('click', startGame);

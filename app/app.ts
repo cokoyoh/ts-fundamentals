@@ -49,14 +49,5 @@ const logMessage = (message: string) => console.log(message);
 
 const logError = (error: string) => console.error(error);
 
-let myResult: Result = {
-    playerName: 'Jane Doe',
-    score: 5,
-    problemCount: 5,
-    factor: 7
-};
-
-let player: Person = {
-    name: 'John Doe',
-    formatName: () => 'Jane'
-}
+const firstPlayer: Player = new Player('Jane Doe', 10);
+console.log(firstPlayer.name);

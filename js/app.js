@@ -1,5 +1,14 @@
+var Player = (function () {
+    function Player(name, highScore) {
+        this.name = name;
+        this.highScore = highScore;
+    }
+    Player.prototype.formatName = function () {
+        return this.name.toLocaleUpperCase();
+    };
+    return Player;
+}());
 function startGame() {
-    // starting a new game
     var playerName = getInputValue('playername');
     logPlayer(playerName);
     postScore(100, playerName);
@@ -38,3 +47,4 @@ var logMessage = function (message) { return console.log(message); };
 var logError = function (error) { return console.error(error); };
 var firstPlayer = new Player('Jane Doe', 10);
 console.log(firstPlayer.name);
+//# sourceMappingURL=app.js.map

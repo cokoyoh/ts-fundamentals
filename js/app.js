@@ -59,7 +59,7 @@ var Game = (function () {
     Game.prototype.calculateScore = function () {
         var score = 0;
         for (var index = 0; index < this.problemCount; index++) {
-            var answer = Number(Utility.getInputValue("answer " + index));
+            var answer = Number(Utility.getInputValue('answer' + index));
             if (index * this.factor === answer) {
                 score++;
             }
@@ -76,9 +76,9 @@ var Game = (function () {
     };
     return Game;
 }());
-var _a, _b;
 var newGame;
-(_a = document.getElementById('startGame')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
+document.getElementById('startGame')
+    .addEventListener('click', function () {
     var playerName = Utility.getInputValue('playername');
     var player = new Player(playerName, 0);
     var problemCount = Number(Utility.getInputValue('problemCount'));
@@ -86,7 +86,9 @@ var newGame;
     newGame = new Game(player, problemCount, factor);
     newGame.displayGame();
 });
-(_b = document.getElementById('calculate')) === null || _b === void 0 ? void 0 : _b.addEventListener('clicl', function () {
+document.getElementById('calculate')
+    .addEventListener('cliclickcl', function () {
+    console.log('calculating score...');
     newGame.calculateScore();
 });
 //# sourceMappingURL=app.js.map

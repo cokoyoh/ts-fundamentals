@@ -4,8 +4,8 @@
 let newGame: Game;
 
 //add clieck handler to  the start game button
-document.getElementById('startGame')
-    ?.addEventListener('click', () => {
+(<HTMLElement>document.getElementById('startGame'))
+    .addEventListener('click', () => {
         const playerName = Utility.getInputValue('playername');
         const player: Player = new Player(playerName, 0);
 
@@ -14,10 +14,11 @@ document.getElementById('startGame')
 
         newGame = new Game(player, problemCount, factor);
         newGame.displayGame();
-    })
+    });
 
 // add click handler to calculate the score
-document.getElementById('calculate')
-    ?.addEventListener('clicl', () => {
+(<HTMLElement>document.getElementById('calculate'))
+    .addEventListener('cliclickcl', () => {
+        console.log('calculating score...');
         newGame.calculateScore();
     })

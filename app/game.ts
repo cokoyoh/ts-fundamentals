@@ -22,18 +22,18 @@ class Game {
         }
 
         //add the new game to the page
-        const gameElement: HTMLElement = document.getElementById('game');
+        const gameElement: HTMLElement = <HTMLElement>document.getElementById('game');
         gameElement.innerHTML = gameForm;
 
         //enable the calculate score button
-        document.getElementById('calculate').removeAttribute('disabled');
+        (<HTMLElement>document.getElementById('calculate')).removeAttribute('disabled');
     }
 
     calculateScore(): void {
         let score: number = 0;
 
         for (let index = 0; index < this.problemCount; index++) {
-            const answer: number = Number(Utility.getInputValue(`answer ${index}`));
+            const answer: number = Number(Utility.getInputValue('answer' + index));
 
             if (index * this.factor === answer) {
                 score++;
@@ -43,7 +43,7 @@ class Game {
         //create a new result object to pass to the scoreboard
         const result: Result = {
             playerName: this.player.name,
-            score,
+            score: score,
             problemCount: this.problemCount,
             factor: this.factor
         };
@@ -53,6 +53,6 @@ class Game {
         this.scoreboard.updateScoreBoard();
 
         //disable the calculate score button
-        document.getElementById('calculate').setAttribute('disabled', 'true');
+        (<HTMLElement>document.getElementById('calculate')).setAttribute('disabled', 'true');
     }
 }
